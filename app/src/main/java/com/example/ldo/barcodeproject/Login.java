@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity
                 &&cur_user.getPassword().equals("1")))
         {
             if (cur_user.getLogin().equals("ldo")) cur_user.setAdmin(true);
-            CurrentSystemStatus.current_user = cur_user;
+            CurrentSystemStatus.CurrentUser = cur_user;
             Intent intent = new Intent(this, MainMenu.class);
             startActivity(intent);
         }

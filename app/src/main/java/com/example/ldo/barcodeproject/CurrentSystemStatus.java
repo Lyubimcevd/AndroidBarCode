@@ -1,5 +1,7 @@
 package com.example.ldo.barcodeproject;
 
 public class CurrentSystemStatus {
-    static User current_user;
+    static User CurrentUser;
+    static boolean IsUSB;
+    static int SleepTime;
 }

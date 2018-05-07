@@ -22,7 +22,7 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
         Button admin = (Button) findViewById(R.id.admin);
-        if (CurrentSystemStatus.current_user.isAdmin()) admin.setVisibility(View.VISIBLE);
+        if (CurrentSystemStatus.CurrentUser.isAdmin()) admin.setVisibility(View.VISIBLE);
         else admin.setVisibility(View.INVISIBLE);
     }
 
@@ -46,6 +46,12 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
+    public void DoSettings(View view)
+    {
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
+    }
+
     public void DoAdmin(View view)
     {
         Intent intent = new Intent(this, AdminWindow.class);
@@ -64,6 +70,7 @@ public class MainMenu extends AppCompatActivity {
                     }
                 }).create().show();
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RC_BARCODE_CAPTURE) {
@@ -73,7 +80,7 @@ public class MainMenu extends AppCompatActivity {
                     DatabaseAdapter adapter = new DatabaseAdapter(this);
                    adapter.open();
                     if(adapter.getScanBarCode(barcode.displayValue)==null) {
-                        ScanBarCode scanbarcode = new ScanBarCode(barcode.displayValue, CurrentSystemStatus.current_user.getLogin(), new Date());
+                        ScanBarCode scanbarcode = new ScanBarCode(barcode.displayValue, CurrentSystemStatus.CurrentUser.getLogin(), new Date());
                         adapter.insert(scanbarcode);
                     }
                     else{

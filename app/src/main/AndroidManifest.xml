@@ -36,7 +36,8 @@
         <activity android:name=".AdminWindow" />
         <activity android:name=".NewUser" />
         <activity android:name=".BarcodeCaptureActivity" />
-        <activity android:name=".ReductionActivity"></activity>
+        <activity android:name=".ReductionActivity" />
+        <activity android:name=".Settings"></activity>
     </application>
 
 </manifest>
